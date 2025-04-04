@@ -1,5 +1,5 @@
 import React, { useState, FormEvent, ChangeEvent } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+// import { useNavigate } from 'react-router-dom'; 
 import Auth from '../utils/auth'; 
 import { login } from '../api/authAPI'; 
 import '../css/Login.css';
@@ -10,7 +10,7 @@ function Login() {
     password: '',
   });
 
-  const navigate = useNavigate();  // Call useNavigate here directly in the component
+  // const navigate = useNavigate();  // Call useNavigate here directly in the component
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -30,7 +30,7 @@ function Login() {
       console.log('Login successful');
       
       // After successful login, navigate to /home
-      navigate('/Home');
+      // navigate('/Home');
     } catch (err) {
       console.error('Failed to login', err);
       alert('Login failed. Please check your credentials.');

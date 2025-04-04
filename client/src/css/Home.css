@@ -3,13 +3,13 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 30px;
-  padding-top: 100px; /* Adjusted padding to ensure content isn't hidden behind fixed header */
+  padding-top: 7%; /* Adjusted padding to ensure content isn't hidden behind fixed header */
   text-align: center;
   font-family: Arial, sans-serif;
+
+
 }
 
-/* Title of the page */
 h2 {
   font-size: 2rem;
   margin-bottom: 20px;
