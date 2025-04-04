@@ -1,14 +1,13 @@
 import React from 'react';
+import '../css/ComingSoon.css';
 
-function New() {
+const New: React.FC = () => {
   return (
-    <div className='h-screen flex items-center justify-center bg-gray-100'>
-      <div className='text-center'>
-        <h1 className='text-4xl font-bold text-gray-800'>Coming Soon</h1>
-        <p className='mt-4 text-lg text-gray-600'>This page is under construction. Stay tuned!</p>
-      </div>
+    <div className="coming-soon-container">
+      <h2>Coming Soon</h2>
+      <p>We're working hard to bring you awesome car listings. Stay tuned!</p>
     </div>
   );
-}
+};
 
 export default New;

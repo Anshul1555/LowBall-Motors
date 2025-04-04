@@ -9,7 +9,7 @@ import Home from './pages/Home.tsx';
 import Login from './pages/Login.tsx';
 import Sell from './pages/Sell.tsx';
 import New from './pages/New.tsx';
-import ComingSoon from './pages/PreOwned.tsx'; 
+import PreOwned from './pages/PreOwned.tsx'; 
 
 const router = createBrowserRouter([
   {
@@ -34,8 +34,8 @@ const router = createBrowserRouter([
         element: <New />
       },
       {
-        path: '/coming-soon',
-        element: <ComingSoon />
+        path: '/preowned',
+        element: <PreOwned />
       }
     ]
   }
