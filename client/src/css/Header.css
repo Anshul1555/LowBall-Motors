@@ -1,0 +1,81 @@
+/* Header Container */
+.header {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 10px 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+}
+
+/* Header Title */
+.header-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 10px; /* Add some space below the title */
+}
+
+/* Header Bottom (Navigation & Sign-in) */
+.header-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%; /* Ensure it takes full width */
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Navigation Menu */
+.header-menu .menu-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.header-menu .menu-links li {
+  display: inline-block;
+}
+
+.header-menu .menu-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out, transform 0.2s;
+}
+
+.header-menu .menu-links li a:hover {
+  color: #f39c12;
+  transform: scale(1.1);
+}
+
+/* Sign-out Button */
+.header-signin {
+  margin-left: auto; /* Align to the right */
+}
+
+.sign-out {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.sign-out:hover {
+  color: #f39c12;
+}

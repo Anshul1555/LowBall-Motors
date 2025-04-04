@@ -1,0 +1,15 @@
+.footer-container {
+  background-color: #000001; 
+  color: rgb(253, 253, 253);
+  text-align: center; 
+  padding: 20px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%; 
+}
+
+/* Footer text */
+.footer p {
+  margin: 0;
+  font-size: 14px;
+}

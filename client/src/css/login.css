@@ -1,0 +1,95 @@
+.container {
+    background-image: url('https://wallpapercave.com/wp/wp8879567.jpg');
+    background-size: cover; 
+    background-position: center -35%; 
+    background-repeat: no-repeat; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: calc(100vh - 50px); 
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+  }
+  
+  /* Login Box Styles */
+  .login-box {
+    background-color: rgba(66, 64, 64, 0.5); 
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px; 
+    text-align: center;
+  } 
+
+  h1 {
+    color: #ffffff;
+  }
+ 
+  p {
+    
+    color: #fbf9f9;
+  }
+
+  .input-group{
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #fffdfd;
+  }
+
+  /* Input Fields Style */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Blue background */
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Forgot Password Style */
+  .forgot-password {
+    margin-top: 10px;
+  }
+  
+  .forgot-password a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
