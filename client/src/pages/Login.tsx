@@ -24,8 +24,7 @@ function Login() {
     e.preventDefault();
     try {
       const data = await login(loginData);
-      const token = data.token;
-      localStorage.setItem('token', token); 
+      
       Auth.login(data.token); 
       console.log('Login successful');
       

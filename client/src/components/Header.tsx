@@ -6,6 +6,10 @@ function Header() {
   const location = useLocation();
   const isLoginPage = location.pathname === '/';
 
+  const handleSignOut = () => {
+    localStorage.removeItem('id_token'); // Clear the token from local storage
+  }
+
   return (
     <header className="header">
       <div className="header-top">
@@ -23,7 +27,7 @@ function Header() {
             </ul>
           </nav>
           <div className="header-signin">
-            <Link to="/" className="signin-link sign-out">Sign Out</Link>
+            <Link to="/" className="signin-link sign-out" onClick={handleSignOut}>Sign Out</Link>
           </div>
         </div>
       )}
