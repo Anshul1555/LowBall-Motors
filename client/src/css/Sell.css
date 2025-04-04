@@ -7,7 +7,7 @@
 
 /* Container for the Sell Page */
 .sell-container {
-    padding: 2rem 3rem;
+    padding: 6rem 3rem 2rem;
     background-color: #f9fafb;
     min-height: calc(100vh - 10px - 60px); /* Adjusted based on header/footer height */
     display: flex;
