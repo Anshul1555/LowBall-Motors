@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { Button } from '../components/ui/Button';
+import '../css/Sell.css';
 
-function Sell({ onSubmit }) {
+function Sell() {
   const [carDetails, setCarDetails] = useState({
-    name: '',
+    brand: '',
+    model: '',
     year: '',
     mileage: '',
     price: '',
-    image: '', // Added field for car image
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setCarDetails((prevDetails) => ({
       ...prevDetails,
@@ -18,93 +18,132 @@ function Sell({ onSubmit }) {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(carDetails);  // Send car details to parent (App.js)
-    setCarDetails({ name: '', year: '', mileage: '', price: '', image: '' }); // Reset form
+
+    const { brand, model, year, mileage, price } = carDetails;
+
+    if (!brand || !model || !year || !mileage || !price) {
+      alert('Please fill in all required fields');
+      return;
+    }
+
+    const yearNum = parseInt(year);
+    const mileageNum = parseInt(mileage);
+    const priceNum = parseFloat(price);
+
+    if (yearNum < 2015 || yearNum > 2025) {
+      alert('Model year must be between 2015 and 2025');
+      return;
+    }
+
+    if (mileageNum < 0) {
+      alert('Mileage cannot be negative');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:3001/api/cars', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          brand,
+          model,
+          year: yearNum,
+          mileage: mileageNum,
+          price: priceNum,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Failed to submit car details');
+      }
+
+      alert('Car listed successfully!');
+      setCarDetails({ brand: '', model: '', year: '', mileage: '', price: '' });
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to list car. Please try again later.');
+    }
   };
 
   return (
-    <div className="px-10 md:px-20 my-10">
-      <div className="flex items-center">
-        <div className="flex-grow text-center">
-          <h2 className="font-bold text-4xl inline-block">Sell Your Car</h2>
-        </div>
-        {/* Sell button triggers the form submission */}
-        <button 
-          type="submit" 
-          className="bg-blue-500 text-white px-8 py-4 text-xl rounded"
-          onClick={handleSubmit} // Directly trigger handleSubmit
-        >
-          Sell
-        </button>
+    <div className="sell-container">
+      <div className="sell-header">
+        <h2>Sell Your Car</h2>
       </div>
 
-      <form className="p-10" onSubmit={handleSubmit}>
+      <form className="form-container" onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label htmlFor="name" className="block text-lg font-medium">Car Name</label>
+          <label htmlFor="brand">Brand</label>
           <input
             type="text"
-            id="name"
-            name="name"
-            value={carDetails.name}
+            id="brand"
+            name="brand"
+            value={carDetails.brand}
             onChange={handleInputChange}
-            className="w-full p-2 border border-gray-300 rounded"
-            placeholder="Enter car name"
+            placeholder="Enter car brand"
           />
         </div>
 
         <div className="mb-4">
-          <label htmlFor="year" className="block text-lg font-medium">Model Year</label>
+          <label htmlFor="model">Model</label>
+          <input
+            type="text"
+            id="model"
+            name="model"
+            value={carDetails.model}
+            onChange={handleInputChange}
+            placeholder="Enter car model"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label htmlFor="year">Model Year</label>
           <input
             type="number"
             id="year"
             name="year"
             value={carDetails.year}
             onChange={handleInputChange}
-            className="w-full p-2 border border-gray-300 rounded"
             placeholder="Enter car model year"
+            min="2015"
+            max="2025"
           />
         </div>
 
         <div className="mb-4">
-          <label htmlFor="mileage" className="block text-lg font-medium">Mileage (in miles)</label>
+          <label htmlFor="mileage">Mileage (in miles)</label>
           <input
             type="number"
             id="mileage"
             name="mileage"
             value={carDetails.mileage}
             onChange={handleInputChange}
-            className="w-full p-2 border border-gray-300 rounded"
             placeholder="Enter car mileage"
+            min="0"
           />
         </div>
 
         <div className="mb-4">
-          <label htmlFor="price" className="block text-lg font-medium">Price</label>
+          <label htmlFor="price">Price</label>
           <input
             type="text"
             id="price"
             name="price"
             value={carDetails.price}
             onChange={handleInputChange}
-            className="w-full p-2 border border-gray-300 rounded"
             placeholder="Enter car price"
           />
         </div>
 
-        <div className="mb-4">
-          <label htmlFor="image" className="block text-lg font-medium">Car Image URL</label>
-          <input
-            type="text"
-            id="image"
-            name="image"
-            value={carDetails.image}
-            onChange={handleInputChange}
-            className="w-full p-2 border border-gray-300 rounded"
-            placeholder="Enter car image URL"
-          />
-        </div>
+        <button type="submit" className="btn-sell">
+          Sell
+        </button>
       </form>
     </div>
   );

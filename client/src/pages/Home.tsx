@@ -8,14 +8,10 @@ const Home: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Fetch car data from API (with authorization token if available)
+    // Fetch car data from API
     const fetchCars = async () => {
-      const token = localStorage.getItem('token'); // Get token from localStorage
-
       try {
-        const response = await axios.get('http://localhost:3001/api/cars', {
-          headers: token ? { Authorization: `Bearer ${token}` } : {}, // Pass token if available
-        });
+        const response = await axios.get('http://localhost:3001/api/cars');
         console.log('Fetched cars:', response.data); // Log the fetched data
         setCars(response.data); // Set the fetched car data to state
         setLoading(false); // Stop the loading spinner

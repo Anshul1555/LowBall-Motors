@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/sell',
-        element: <Sell /> // Example for sell page
+        element: <Sell /> 
       },
       {
         path: '/new',

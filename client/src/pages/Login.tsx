@@ -30,7 +30,7 @@ function Login() {
       console.log('Login successful');
       
       // After successful login, navigate to /home
-      navigate('/home');
+      navigate('/Home');
     } catch (err) {
       console.error('Failed to login', err);
       alert('Login failed. Please check your credentials.');

@@ -16,7 +16,7 @@ function Header() {
         <div className="header-bottom">
           <nav className="header-menu">
             <ul className="menu-links">
-              <li><Link to="/">Home</Link></li>
+              <li><Link to="/home">Home</Link></li>
               <li><Link to="/sell">Sell</Link></li>
               <li><Link to="/new">New</Link></li>
               <li><Link to="/coming">PreOwned</Link></li>
