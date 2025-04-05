@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import '../css/Home.css';
+import '../components/CarDetails';
+import { useNavigate } from 'react-router-dom';
 
 const Home: React.FC = () => {
   const [cars, setCars] = useState<any[]>([]);
@@ -10,6 +12,8 @@ const Home: React.FC = () => {
   const [selectedBrand, setSelectedBrand] = useState('');
   const [selectedYear, setSelectedYear] = useState('');
   const [selectedPriceRange, setSelectedPriceRange] = useState('');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCars = async () => {
@@ -105,11 +109,13 @@ const Home: React.FC = () => {
         <p className="error-message">{error}</p>
       ) : (
         <div className="car-cards-container">
+                          
           {filteredCars.length === 0 ? (
             <p>No matching cars found.</p>
           ) : (
             filteredCars.map((car) => (
-              <div className="car-card" key={car.id}>
+              <div className="car-card" key={car.id}
+              onClick={() => navigate(`/cars/${car.id}`)}>
                 <h3>{car.brand} {car.model}</h3>
                 <p><strong>Year:</strong> {car.year}</p>
                 <p><strong>Price:</strong> ${car.price}</p>
