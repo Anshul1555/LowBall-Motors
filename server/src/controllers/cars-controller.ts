@@ -51,7 +51,7 @@ export const updateCar = async (req: Request, res: Response): Promise<void> => {
         car.brand = brand;
         car.model = model;
         car.year = year;
-        car.price = price;
+        car.price = price; 
         await car.save();
         res.json(car);
     } catch (error) {
