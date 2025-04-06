@@ -94,7 +94,7 @@ export default function ChatBox( {car}) {
       <div className="chat-popup">
         {/* Header */}
         <div className="chat-header">
-          <span>Seller</span>
+          <span>Owner of {`${car.year} ${car.brand} ${car.model}`}</span>
           <button onClick={toggleChat}>✖</button>
         </div>
 
@@ -110,6 +110,7 @@ export default function ChatBox( {car}) {
         {/* Input field */}
         <form className="chat-input" onSubmit={handleSend}>
           <input
+            className="input-box"
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
