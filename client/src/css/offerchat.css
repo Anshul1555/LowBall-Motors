@@ -94,7 +94,7 @@
     word-break: break-word;
   }
   
-  /* User message bubble */
+  /* user message */
   .message.user {
 
     align-self: flex-end;
