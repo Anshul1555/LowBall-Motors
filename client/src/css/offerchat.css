@@ -51,6 +51,17 @@
     padding: 1%;
     border-top:1px solid black;
     bottom: 100%;
+    font-weight: bold;
+}
+.chat-input button{
+    background-color: #dad5d5;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.input-box {
+    border-radius: 25px;
+    background-color:#f1ecec;
 }
 
 .chat-header{

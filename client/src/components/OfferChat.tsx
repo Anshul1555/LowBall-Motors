@@ -110,6 +110,7 @@ export default function ChatBox( {car}) {
         {/* Input field */}
         <form className="chat-input" onSubmit={handleSend}>
           <input
+            className="input-box"
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
