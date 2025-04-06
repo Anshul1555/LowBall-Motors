@@ -2,7 +2,7 @@ import React, { useState, FormEvent, ChangeEvent } from 'react';
 // import { useNavigate } from 'react-router-dom'; 
 import Auth from '../utils/auth'; 
 import { login } from '../api/authAPI'; 
-import '../css/Login.css';
+import '../css/login.css';
 
 function Login() {
   const [loginData, setLoginData] = useState({
