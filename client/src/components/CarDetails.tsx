@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios';
 import { CarData } from "../interfaces/Cars";
 import '../css/CarDetails.css'
-import ChatBox from "./OfferChat";
+import ChatBox from "./OfferChat.tsx";
 
 
 
@@ -41,7 +41,7 @@ const CarDetails: React.FC = () => {
         <h2>{car.brand} {car.model}</h2>
         <p><strong>Year:</strong> {car.year}</p>
         <p><strong>Price:</strong> ${car.price}</p>
-        <ChatBox/>
+        <ChatBox car={car}/>
       </div>
     );
   };
