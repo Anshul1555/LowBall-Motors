@@ -1,11 +1,83 @@
 .car-details-container {
-    z-index: 5;
-    color: #000000;
-    top: 15%;
-    padding: 20%;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 140px 40px 100px; 
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  min-height: calc(100vh - 160px); 
+  position: relative;
+  
+}
+.car-details-container p{
+  color: black;
 }
 
-.car-details-container p {
-    color: #000000
+.car-details-info {
+  flex: 2;
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.car-details-info h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.car-details-info p {
+  font-size: 16px;
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.rating-section {
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+.rating-stars {
+  font-size: 20px;
+  color: #ffb700;
+  margin-bottom: 10px;
+}
+
+.reviews p {
+  font-style: italic;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.chatbox-wrapper {
+  position: absolute;
+  top: 100px; 
+  right: 40px;
+  z-index: 1000;
+  padding-top: 140px;
+}
+
+.back-button {
+  background: #f0f0f0;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 150px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  color: #ffffff;
+  background-color: #444;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  align-self: flex-start;
+}
+
+.back-button:hover {
+  background: #dcdcdc;
 }
