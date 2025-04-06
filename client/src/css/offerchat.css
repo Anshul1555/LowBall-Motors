@@ -112,3 +112,21 @@
     padding: 10px 14px;
     word-wrap: break-word;
   }
+
+.lowball-button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 8px 14px;
+    background-color: #f39c12;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .lowball-button:hover {
+    background-color: #d68910;
+  }
