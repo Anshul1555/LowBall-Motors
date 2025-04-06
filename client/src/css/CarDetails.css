@@ -1,0 +1,11 @@
+.car-details-container {
+    z-index: 5;
+    color: #000000;
+    top: 15%;
+    padding: 20%;
+
+}
+
+.car-details-container p {
+    color: #000000
+}
