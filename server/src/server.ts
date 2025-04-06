@@ -14,7 +14,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Enable CORS for all origins (or specify specific origins if needed)
-app.use(cors());
+
 
 // Serves static files in the entire client's dist folder
 app.use(express.static('../client/dist'));
@@ -27,7 +27,7 @@ app.use(cors({
 app.use(express.json());
 app.use(routes);
 
-app.use(bodyParser.json);
+app.use(bodyParser.json());
 
 const openai = new OpenAI(
     {apiKey: process.env.OPENAI_API_KEY,}
@@ -35,12 +35,23 @@ const openai = new OpenAI(
 
 app.post('/api/chat', async (req, res) => {
   const {message} = req.body;
+  console.log('message received from frontend', message)
 
   try {
     const completion = await openai.chat.completions.create({
       model: 'gpt-4',
-      messages: [{ role: 'user', content: message}],
+      messages: [
+        {
+        role: 'system',
+        content: 'You are an angry owner of the car referenced in the chat, and you are really offended about how low the offer the user sends is. You use the words "I know what I got" often. Do not refuse to sell the car to the user, only start angrily negotiating the price'
+        },
+        {
+          role: 'user',
+          content: message
+        }
+      ],
     });
+    console.log("Response from Model:", completion.choices[0].message.content)
 
     res.json({ reply: completion.choices[0].message.content });
 
