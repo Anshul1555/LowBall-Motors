@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios';
 import { CarData } from "../interfaces/Cars";
 import '../css/CarDetails.css'
+import ChatBox from "./OfferChat";
 
 
 
@@ -35,11 +36,12 @@ const CarDetails: React.FC = () => {
     if (!car) return <p>Car not found.</p>;
   
     return (
-      <div className="">
+      <div className="car-details-container">
         <button onClick={() => navigate(-1)}>← Back</button>
         <h2>{car.brand} {car.model}</h2>
         <p><strong>Year:</strong> {car.year}</p>
         <p><strong>Price:</strong> ${car.price}</p>
+        <ChatBox/>
       </div>
     );
   };
